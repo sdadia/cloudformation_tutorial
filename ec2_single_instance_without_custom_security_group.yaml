@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: "2010-09-09"  
+Resources:  
+  SupersetInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-08d658f84a6d84a80
+      KeyName: first_ec2_instance
+      SecurityGroupIds:
+        - sg-00f52f282e03f6b10
+      SubnetId: subnet-fc82e69a
+      

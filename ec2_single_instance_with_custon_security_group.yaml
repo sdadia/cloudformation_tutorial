@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: "2010-09-09"  
+Resources:  
+  SupersetEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-08d658f84a6d84a80
+      KeyName: first_ec2_instance
+      SecurityGroups:
+        - !Ref SupersetSG
+      
+  SupersetSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription : Opens port 8080 for accessing superset website on EC2 Instance from anywhere and port 22 for accessing via ssh from anywhere
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '8080'
+        ToPort: '8080'
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: '22'
+        ToPort: '22'
+        CidrIp: 0.0.0.0/0

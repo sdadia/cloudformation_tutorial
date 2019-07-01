@@ -1,0 +1,7 @@
+Resources:
+  KinesisStream:
+      Type: 'AWS::Kinesis::Stream'
+      Properties:
+        Name: mycfkinesisstream
+        RetentionPeriodHours: 24
+        ShardCount: 1
